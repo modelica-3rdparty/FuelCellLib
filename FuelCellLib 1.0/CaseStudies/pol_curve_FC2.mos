@@ -1,0 +1,32 @@
+
+//Before to simulate the polarization curve is necessary to translate the FuelCellLib.casestudies.FC2Layer
+
+////Polarization curve simulation///////////////////////////////////////////
+
+for i in 1.4e-4:0.1e-4:2.4e-4 loop
+
+RL1.R=i;
+
+simulateModel(problem="FuelCellLib.casestudies.FC2Layer", startTime=0, stopTime=0.5,numberOfIntervals=100, outputInterval=0, method="dassl",tolerance=1e-4,resultFile="polarization2L"+ realString(i));
+
+end for
+
+
+for i in 3e-4:2e-4:15e-4 loop
+
+RL1.R=i;
+
+
+simulateModel(problem="FuelCellLib.casestudies.FC2Layer", startTime=0, stopTime=0.5,numberOfIntervals=100, outputInterval=0, method="dassl",tolerance=1e-4,resultFile="polarization2L"+ realString(i));
+end for
+
+
+for i in 20e-4:1000e-4:10200e-4 loop
+
+RL1.R=i;
+
+simulateModel(problem="FuelCellLib.casestudies.FC2Layer", startTime=0, stopTime=0.5,numberOfIntervals=100, outputInterval=0, method="dassl",tolerance=1e-4,resultFile="polarization2L"+ realString(i));
+
+end for
+/////////////////////////////////////////////////////End of polarization curve
+
